@@ -64,6 +64,5 @@
     const blob = new Blob([stringManifest], {type: 'application/json'});
     const manifestURL = URL.createObjectURL(blob);
     document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
-    console.log(stringManifest);
 </script>
 </html>
