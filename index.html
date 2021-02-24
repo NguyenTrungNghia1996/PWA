@@ -41,7 +41,7 @@
         };
     }
 
-    const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://pwaapptes.herokuapp.com", "https://pwaapptes.herokuapp.com/index.html"));
+    const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
     const blob = new Blob([stringManifest], {type: 'application/json'});
     const manifestURL = URL.createObjectURL(blob);
     document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
