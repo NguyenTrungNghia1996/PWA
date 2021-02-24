@@ -40,8 +40,23 @@
             "orientation": "any"
         };
     }
-    var os = navigator.platform;
-    alert(os)
+ 
+// if(navigator.userAgent.match(/Android/i)){
+//  alert("Android")
+// }
+ 
+ 
+ 
+// if(navigator.userAgent.match(/BlackBerry/i)){
+//  //code for BlackBerry here 
+// }
+ 
+ 
+// if(navigator.userAgent.match(/win32/i)){
+//     alert("Window")
+// }
+    var os =navigator.userAgent;
+    alert(os);
     const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
     //const stringManifest = JSON.stringify(myDynamicManifest);
     const blob = new Blob([stringManifest], {type: 'application/json'});
