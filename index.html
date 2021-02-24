@@ -40,33 +40,8 @@
             "orientation": "any"
         };
     }
-//     var myDynamicManifest = {
-//             "$schema": "http://json.schemastore.org/web-manifest",
-//             "short_name": "short_name",
-//             "name": "name",
-//             "description": "description",
-//             "icons": [
-//                 {
-//                     "src": "https://atdsf.herokuapp.com/icon/manifest-icon-192.png",
-//                     "sizes": "192x192",
-//                     "type": "image/png",
-//                     "purpose": "maskable any"
-//                 },
-//                 {
-//                     "src": "https://atdsf.herokuapp.com/icon/manifest-icon-512.png",
-//                     "sizes": "512x512",
-//                     "type": "image/png",
-//                     "purpose": "maskable any"
-//                 }
-//             ],
-//             "background_color": "#c15252",
-//             "theme_color": "#556f91",
-//             "start_url": "https://atdsf.herokuapp.com/hn.html",
-//             "display": "standalone",
-//             "orientation": "any"
-// }
-
-
+    var os = navigator.platform;
+    alert(os)
     const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
     //const stringManifest = JSON.stringify(myDynamicManifest);
     const blob = new Blob([stringManifest], {type: 'application/json'});
@@ -96,5 +71,7 @@
     });
 
    // window.navigator.geolocation.getCurrentPosition(console.log)
+   
+   console.log(os);
 </script>
 </html>
