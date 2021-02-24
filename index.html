@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="manifest" href="/manifesthn.json">
+    <link rel="manifest" href="my-manifest-placeholder">
 </head>
 <body>
     <h1>PWA APP TEST</h1>
@@ -31,6 +31,33 @@
         window.addEventListener('appinstalled',(evt)=>{
             app.logEvent('a2hs','installed');
         });
+        //document.querySelector('#my-manifest-placeholder').setAttribute('href', '/my-dynamic-manifest-url.json');
+        let myDynamicManifest = {
+            "name": "Your Great Site",
+            "short_name": "Site",
+            "description": "Something dynamic",
+            "start_url": "/g",
+            "background_color": "#000000",
+            "theme_color": "#0f4a73",
+            "icons": [
+                {
+                    "src": "icon/manifest-icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png",
+                    "purpose": "maskable any"
+                },
+                {
+                    "src": "icon/manifest-icon-512.png",
+                    "sizes": "512x512",
+                    "type": "image/png",
+                    "purpose": "maskable any"
+                }
+            ]
+        }
+        const stringManifest = JSON.stringify(myDynamicManifest);
+        const blob = new Blob([stringManifest], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(blob);
+        document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
     </script>
 </body>
 </html>
