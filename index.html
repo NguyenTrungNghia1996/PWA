@@ -12,7 +12,7 @@
 <button type="button" id="btnAdd">Click Me!</button>
 </body>
 <script>
-        function manifest(short_name, name, description,icon_192,icon_512,scope, start_url) {
+    function manifest(short_name, name, description, icon_192, icon_512, scope, start_url) {
         return {
             "$schema": "http://json.schemastore.org/web-manifest",
             "short_name": short_name,
@@ -40,31 +40,34 @@
             "orientation": "any"
         };
     }
-    const stringManifest = JSON.stringify(manifest("short_name_test","name_test","description_test","manifest-icon-192.png","manifest-icon-512.png","https://pwaapptes.herokuapp.com","https://pwaapptes.herokuapp.com/index.html"));
+
+    const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://pwaapptes.herokuapp.com", "https://pwaapptes.herokuapp.com/index.html"));
     const blob = new Blob([stringManifest], {type: 'application/json'});
     const manifestURL = URL.createObjectURL(blob);
     document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./service-worker.js');
-        }
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            btnAdd.style.display = 'block';
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+    }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        btnAdd.style.display = 'block';
+    });
+    btnAdd.addEventListener('click', (e) => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('usser');
+            }
+            deferredPrompt = null;
         });
-        btnAdd.addEventListener('click', (e) => {
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('usser');
-                }
-                deferredPrompt = null;
-            });
-        });
-        window.addEventListener('appinstalled', (evt) => {
-            app.logEvent('a2hs', 'installed');
-        });
+    });
+    window.addEventListener('appinstalled', (evt) => {
+        app.logEvent('a2hs', 'installed');
+    });
+
+   // window.navigator.geolocation.getCurrentPosition(console.log)
 </script>
 </html>
