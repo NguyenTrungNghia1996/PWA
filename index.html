@@ -4,97 +4,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="manifest" id="my-manifest-placeholder">
+    <link rel="manifest" href="/manifest.json">
 </head>
 
 <body>
-<h1>PWA APP TEST</h1>
-<button type="button" id="btnAdd">Click Me!</button>
-</body>
-<script>
-    // function manifest(short_name, name, description, icon_192, icon_512, scope, start_url) {
-    //     return {
-    //         "$schema": "http://json.schemastore.org/web-manifest",
-    //         "short_name": short_name,
-    //         "name": name,
-    //         "description": description,
-    //         "scope": scope,
-    //         "icons": [
-    //             {
-    //                 "src": scope + "/icon/" + icon_192,
-    //                 "sizes": "192x192",
-    //                 "type": "image/png",
-    //                 "purpose": "maskable any"
-    //             },
-    //             {
-    //                 "src": scope + "/icon/" + icon_512,
-    //                 "sizes": "512x512",
-    //                 "type": "image/png",
-    //                 "purpose": "maskable any"
-    //             }
-    //         ],
-    //         "background_color": "#c15252",
-    //         "theme_color": "#556f91",
-    //         "start_url": start_url,
-    //         "display": "standalone",
-    //         "orientation": "any"
-    //     };
-    // }
-    var myDynamicManifest = {
-            "$schema": "http://json.schemastore.org/web-manifest",
-            "short_name": "short_name",
-            "name": "name",
-            "description": "description",
-            "icons": [
-                {
-                    "src": "https://atdsf.herokuapp.com/icon/manifest-icon-192.png",
-                    "sizes": "192x192",
-                    "type": "image/png",
-                    "purpose": "maskable any"
-                },
-                {
-                    "src": "https://atdsf.herokuapp.com/icon/manifest-icon-512.png",
-                    "sizes": "512x512",
-                    "type": "image/png",
-                    "purpose": "maskable any"
-                }
-            ],
-            "background_color": "#c15252",
-            "theme_color": "#556f91",
-            "start_url": "https://atdsf.herokuapp.com/hn.html",
-            "display": "standalone",
-            "orientation": "any"
-}
-
-
-    // const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
-    const stringManifest = JSON.stringify(myDynamicManifest);
-    const blob = new Blob([stringManifest], {type: 'application/json'});
-    const manifestURL = URL.createObjectURL(blob);
-    document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js');
-    }
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        btnAdd.style.display = 'block';
-    });
-    btnAdd.addEventListener('click', (e) => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('usser');
-            }
-            deferredPrompt = null;
+    <h1>PWA APP TEST</h1>
+    <button type="button" id="btnAdd">Click Me!</button>
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt',(e)=>{
+            e.preventDefault();
+            deferredPrompt = e;
+            btnAdd.style.display='block';
         });
-    });
-    window.addEventListener('appinstalled', (evt) => {
-        app.logEvent('a2hs', 'installed');
-    });
-
-   // window.navigator.geolocation.getCurrentPosition(console.log)
-</script>
+        btnAdd.addEventListener('click',(e)=>{
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult)=>{
+                if(choiceResult.outcome ==='accepted'){
+                    console.log('usserkfs');
+                }
+                deferredPrompt= null;
+            });
+        });
+        window.addEventListener('appinstalled',(evt)=>{
+            app.logEvent('a2hs','installed');
+        });
+    </script>
+</body>
 </html>
