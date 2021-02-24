@@ -57,7 +57,7 @@
 // }
     // var os =navigator.userAgent;
     // alert(os);
-    $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=1ffc5606a00342708e33458fd1b48e8d', function(data) {
+    $ip.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=1ffc5606a00342708e33458fd1b48e8d', function(data) {
         console.log(JSON.stringify(data, null, 2));
         });
     const stringManifest = JSON.stringify(manifest("short_name_test", "name_test", "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
