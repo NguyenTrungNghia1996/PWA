@@ -11,6 +11,7 @@
 <h1>PWA APP TEST</h1>
 <button type="button" id="btnAdd">Click Me!</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="register.js"></script>
 <h3>Client side IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>
 
 <hr/>
@@ -80,36 +81,11 @@
     $("#details").html(JSON.stringify(response, null, 4));
     }, "jsonp");
 
-    const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
-    //const stringManifest = JSON.stringify(myDynamicManifest);
-    const blob = new Blob([stringManifest], {type: 'application/json'});
-    const manifestURL = URL.createObjectURL(blob);
-    document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js');
-    }
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        btnAdd.style.display = 'block';
-    });
-    btnAdd.addEventListener('click', (e) => {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('usser');
-            }
-            deferredPrompt = null;
-        });
-    });
-    window.addEventListener('appinstalled', (evt) => {
-        app.logEvent('a2hs', 'installed');
-    });
-
+    // const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
+    // //const stringManifest = JSON.stringify(myDynamicManifest);
+    // const blob = new Blob([stringManifest], {type: 'application/json'});
+    // const manifestURL = URL.createObjectURL(blob);
+    // document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
    // window.navigator.geolocation.getCurrentPosition(console.log)
-
-   console.log(os);
 </script>
 </html>
