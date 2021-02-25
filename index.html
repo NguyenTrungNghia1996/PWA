@@ -18,10 +18,18 @@
 <div id="ip"></div>
 <div id="address"></div>
 <hr/>Full response: <pre id="details"></pre>
-<p>Turn the network connection on/off to see the changes.</p>
 
-<p>Initial connection state was <b id="status">unknown</b>.</p>
 
-<div id="target"></div>
+<fieldset>
+    <label>
+      <span>Server URL for connectivity test:</span>
+      <input id="serverUrl" style="width: 100%">
+    </label>
+  </fieldset>
+  <script>document.getElementById('serverUrl').value = window.location.origin;</script>
+  
+  <p>
+    <i>Use Network Panel in DevTools to toggle Offline status</i>
+  </p>
 </body>
 </html>

@@ -99,14 +99,47 @@ $.get("https://ipinfo.io/json", function (response) {
 // document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 // window.navigator.geolocation.getCurrentPosition(console.log)
 
-document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline';
+// Test this by running the code snippet below and then
+// use the "Offline" checkbox in DevTools Network panel
 
-let target = document.getElementById('target');
+window.addEventListener('online', handleConnection);
+window.addEventListener('offline', handleConnection);
 
-function handleStateChange() {
-    let timeBadge = new Date().toTimeString().split(' ')[0];
-    let newState = document.createElement('p');
-    let state = navigator.onLine ? 'online' : 'offline';
-    newState.innerHTML = '' + timeBadge + ' Connection state changed to ' + state + '.';
-    target.appendChild(newState);
+function handleConnection() {
+  if (navigator.onLine) {
+    isReachable(getServerUrl()).then(function(online) {
+      if (online) {
+        // handle online status
+        console.log('online');
+      } else {
+        console.log('no connectivity');
+      }
+    });
+  } else {
+    // handle offline status
+    console.log('offline');
+  }
 }
+
+function isReachable(url) {
+  /**
+   * Note: fetch() still "succeeds" for 404s on subdirectories,
+   * which is ok when only testing for domain reachability.
+   *
+   * Example:
+   *   https://google.com/noexist does not throw
+   *   https://noexist.com/noexist does throw
+   */
+  return fetch(url, { method: 'HEAD', mode: 'no-cors' })
+    .then(function(resp) {
+      return resp && (resp.ok || resp.type === 'opaque');
+    })
+    .catch(function(err) {
+      console.warn('[conn test failure]:', err);
+    });
+}
+
+function getServerUrl() {
+  return document.getElementById('serverUrl').value || window.location.origin;
+}
+
