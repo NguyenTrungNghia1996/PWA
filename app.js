@@ -98,3 +98,15 @@ $.get("https://ipinfo.io/json", function (response) {
 // const manifestURL = URL.createObjectURL(blob);
 // document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 // window.navigator.geolocation.getCurrentPosition(console.log)
+
+document.getElementById('status').innerHTML = navigator.onLine ? 'online' : 'offline';
+
+let target = document.getElementById('target');
+
+function handleStateChange() {
+    let timeBadge = new Date().toTimeString().split(' ')[0];
+    let newState = document.createElement('p');
+    let state = navigator.onLine ? 'online' : 'offline';
+    newState.innerHTML = '' + timeBadge + ' Connection state changed to ' + state + '.';
+    target.appendChild(newState);
+}
