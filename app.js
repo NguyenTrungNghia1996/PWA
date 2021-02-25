@@ -4,7 +4,7 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
         "short_name": "Tin Tuc "+short_name,
         "name": "App Tin Tuc "+name,
         "description": description,
-        "scope": scope,
+        "scope": scope+"/"+name,
         "icons": [
             {
                 "src": scope + "/icon/" + icon_192,
@@ -21,7 +21,7 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
         ],
         "background_color": "#c15252",
         "theme_color": "#556f91",
-        "start_url": start_url,
+        "start_url": start_url+"/"+name,
         "display": "standalone",
         "orientation": "any"
     };
@@ -47,12 +47,13 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
 //     console.log(JSON.stringify(data, null, 2));
 //     });
 $.get("https://ipinfo.io/json", function (response) {
-    local = response.region;
-    const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
+    let local = response.region;
+    const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
     //const stringManifest = JSON.stringify(myDynamicManifest);
     const blob = new Blob([stringManifest], {type: 'application/json'});
     const manifestURL = URL.createObjectURL(blob);
     document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
+
     $("#ip").html("IP: " + response.ip);
     $("#address").html("Location: " + response.city + ", " + response.region);
     $("#details").html(JSON.stringify(response, null, 4));
