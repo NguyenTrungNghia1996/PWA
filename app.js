@@ -31,7 +31,7 @@ let url_string = window.location;
 let url = new URL(url_string);
 
 let locations = url.searchParams.get("location");
-let start_url = url.hostname.toString();
+let start_url = url.origin.toString();
 console.log(url);
 console.log(start_url);
 console.log(locations)
