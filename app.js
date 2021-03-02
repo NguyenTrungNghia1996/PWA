@@ -35,10 +35,10 @@ let start_url = url.origin.toString();
 console.log(url);
 console.log(start_url);
 console.log(locations)
-//const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
-// const blob = new Blob([stringManifest], {type: 'application/json'});
-// const manifestURL = URL.createObjectURL(blob);
-// document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
+const stringManifest = JSON.stringify(manifest(locations, locations, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", start_url, start_url));
+const blob = new Blob([stringManifest], {type: 'application/json'});
+const manifestURL = URL.createObjectURL(blob);
+document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 // if(navigator.userAgent.match(/Android/i)){
 //  alert("Android")
 // }
