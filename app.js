@@ -27,7 +27,16 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
         "shortcut_item": {}
     };
 }
-
+let url_string = window.location;
+let url = new URL(url_string);
+let sourcePWA = url.searchParams.get("utm_source");
+console.log(url_string);
+console.log(url);
+console.log(sourcePWA)
+//const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
+// const blob = new Blob([stringManifest], {type: 'application/json'});
+// const manifestURL = URL.createObjectURL(blob);
+// document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 // if(navigator.userAgent.match(/Android/i)){
 //  alert("Android")
 // }
@@ -47,18 +56,14 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
 // $ip.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=1ffc5606a00342708e33458fd1b48e8d', function(data) {
 //     console.log(JSON.stringify(data, null, 2));
 //     });
-$.get("https://ipinfo.io/json", function (response) {
-    let local = response.region;
-    const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
-    //const stringManifest = JSON.stringify(myDynamicManifest);
-    const blob = new Blob([stringManifest], {type: 'application/json'});
-    const manifestURL = URL.createObjectURL(blob);
-    document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
-
-    $("#ip").html("IP: " + response.ip);
-    $("#address").html("Location: " + response.city + ", " + response.region);
-    $("#details").html(JSON.stringify(response, null, 4));
-}, "jsonp");
+// $.get("https://ipinfo.io/json", function (response) {
+//     let local = response.region;
+//
+//
+//     $("#ip").html("IP: " + response.ip);
+//     $("#address").html("Location: " + response.city + ", " + response.region);
+//     $("#details").html(JSON.stringify(response, null, 4));
+// }, "jsonp");
 
 // const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com/hn.html"));
 // //const stringManifest = JSON.stringify(myDynamicManifest);
