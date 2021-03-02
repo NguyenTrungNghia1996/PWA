@@ -21,7 +21,7 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
         ],
         "background_color": "#c15252",
         "theme_color": "#556f91",
-        "start_url": start_url+"/?utm_source=app&utm_medium="+name,
+        "start_url": start_url+"/"+name,
         "display": "standalone",
         "orientation": "any",
         "shortcut_item": {
