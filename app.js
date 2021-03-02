@@ -31,8 +31,8 @@ let url_string = window.location;
 let url = new URL(url_string);
 
 let locations = url.searchParams.get("location");
-let start_url = url.hostname;
-console.log(url_string);
+let start_url = url.hostname.toString();
+console.log(url);
 console.log(start_url);
 console.log(locations)
 //const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
