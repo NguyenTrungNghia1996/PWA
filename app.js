@@ -29,10 +29,10 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
 }
 let url_string = window.location;
 let url = new URL(url_string);
-let sourcePWA = url.searchParams.get("utm_source");
+let location = url.searchParams.get("location");
 console.log(url_string);
 console.log(url);
-console.log(sourcePWA)
+console.log(location)
 //const stringManifest = JSON.stringify(manifest(local, local, "description_test", "manifest-icon-192.png", "manifest-icon-512.png", "https://atdsf.herokuapp.com", "https://atdsf.herokuapp.com"));
 // const blob = new Blob([stringManifest], {type: 'application/json'});
 // const manifestURL = URL.createObjectURL(blob);
