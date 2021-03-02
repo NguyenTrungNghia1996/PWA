@@ -99,3 +99,26 @@ $.get("https://ipinfo.io/json", function (response) {
 // document.querySelector('#my-manifest-placeholder').setAttribute('href', manifestURL);
 // window.navigator.geolocation.getCurrentPosition(console.log)
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+myImg.addEventListener('click', (e) => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+            alert('thanh cong')
+        }else {
+            deferredPrompt = null;
+            alert('no')
+        }
+
+    });
+});
+window.addEventListener('appinstalled', (evt) => {
+    app.logEvent('a2hs', 'installed');
+});
