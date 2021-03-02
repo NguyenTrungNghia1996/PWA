@@ -29,7 +29,6 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
 }
 let url_string = window.location;
 let url = new URL(url_string);
-
 let locations = url.searchParams.get("location");
 let start_url = url.origin.toString();
 console.log(url);
