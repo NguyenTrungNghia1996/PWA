@@ -108,7 +108,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
 });
 let img = document.getElementById("myImg");
-img.onclick = function(){
+img.addEventListener('click', (e) => {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
@@ -117,12 +117,8 @@ img.onclick = function(){
             deferredPrompt = null;
             alert('no')
         }
-
     });
-}
-// myImg.addEventListener('click', (e) => {
-//
-// });
+});
 window.addEventListener('appinstalled', (evt) => {
     app.logEvent('a2hs', 'installed');
 });
