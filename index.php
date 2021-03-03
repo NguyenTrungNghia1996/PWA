@@ -1,3 +1,6 @@
+<?php
+var_dump($_SERVER['HTTP_HOST']);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
