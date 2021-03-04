@@ -7,13 +7,13 @@ function manifest(short_name, name, description, icon_192, icon_512, scope, star
         "scope": scope+"/"+name,
         "icons": [
             {
-                "src": scope + "/icon/" + icon_192,
+                "src": scope + "/icon/manifest" + icon_192,
                 "sizes": "192x192",
                 "type": "image/png",
                 "purpose": "maskable any"
             },
             {
-                "src": scope + "/icon/" + icon_512,
+                "src": scope + "/icon/manifest" + icon_512,
                 "sizes": "512x512",
                 "type": "image/png",
                 "purpose": "maskable any"
