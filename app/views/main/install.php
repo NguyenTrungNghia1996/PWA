@@ -18,7 +18,7 @@ if (file_exists("/manifest/" . $filename)) {
    <link rel="manifest" href="./public/manifest/default_manifest.json">
     <title>Document</title>
 </head>
-<script src="./public/scripts/app.js">
+<script src="./public/manifest/app.js">
 </script>
 
 <body>

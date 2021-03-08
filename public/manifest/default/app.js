@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('public/scripts/sw.js');
+    navigator.serviceWorker.register('public/manifest/default/sw.js');
 }
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
