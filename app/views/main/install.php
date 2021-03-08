@@ -19,15 +19,6 @@ if (file_exists("/manifest/" . $filename)) {
     <title>Document</title>
 </head>
 <script src="./public/scripts/app.js">
-    // window.addEventListener('load', () => {
-    //     navigator.serviceWorker.register('./public/scripts/service-worker.js')
-    //         .then(swReg => {
-    //             console.log('Service Worker is registered', swReg);
-    //         })
-    //         .catch(err => {
-    //             console.error('Service Worker Error', err);
-    //         });
-    // });
 </script>
 
 <body>
