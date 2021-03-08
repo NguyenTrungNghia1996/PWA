@@ -1,4 +1,4 @@
-headers.append('Service-Worker-Allowed', '/');
+// headers.append('Service-Worker-Allowed', '/');
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('public/manifest/default/sw.js',{scope:'/'});
 }
