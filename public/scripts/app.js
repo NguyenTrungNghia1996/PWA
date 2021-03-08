@@ -1,6 +1,6 @@
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('service-worker.js');
-// }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+}
 // let deferredPrompt;
 // window.addEventListener('beforeinstallprompt', (e) => {
 //     e.preventDefault();
