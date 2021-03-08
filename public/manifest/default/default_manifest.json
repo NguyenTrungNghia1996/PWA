@@ -2,7 +2,7 @@
     "short_name": "TinTuc.vn",
     "name": "App Tin Tuc",
     "description": "Ứng dụng xem tin tức",
-    "scope": "/install/",
+    "scope": "/",
     "icons": [
         {
             "src": "/public/manifest/default/icon/default-icon-192.png",
@@ -19,7 +19,7 @@
     ],
     "background_color": "#c15252",
     "theme_color": "#556f91",
-    "start_url": "/hanoi/home",
+    "start_url": "/home",
     "display": "standalone",
     "orientation": "any"
 }
