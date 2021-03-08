@@ -1,1 +1,12 @@
-{}
+{
+    "name": "tintuc247/html",
+    "require": {
+        "predis/predis": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "hatv",
+            "email": "hatv1592@gmail.com"
+        }
+    ]
+}
