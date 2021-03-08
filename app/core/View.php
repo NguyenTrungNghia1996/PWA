@@ -24,6 +24,7 @@ class View
 	 */
 	public function render($view, $vars = [])
 	{
+		header("Service-Worker-Allowed: *");
 		extract($vars);
 		$this->pathView = 'app/views/' . $this->route['controller'] .'/'. $view . '.php';
 		if (file_exists($this->pathView)) {
