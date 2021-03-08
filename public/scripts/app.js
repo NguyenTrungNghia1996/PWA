@@ -1,18 +1,6 @@
-function registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(reg => {
-            console.log('Registration successful', reg);
-        })
-            .catch(e => console.error('Error during service worker registration:', e));
-    } else {
-        console.warn('Service Worker is not supported');
-    }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
 }
-
-
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('../pwa');
-// }
 // let deferredPrompt;
 // window.addEventListener('beforeinstallprompt', (e) => {
 //     e.preventDefault();
