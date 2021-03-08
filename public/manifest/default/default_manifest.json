@@ -2,7 +2,7 @@
     "short_name": "TinTuc.vn",
     "name": "App Tin Tuc",
     "description": "Ứng dụng xem tin tức",
-    "scope": "/install",
+    "scope": "/install/",
     "icons": [
         {
             "src": "/public/manifest/default/icon/default-icon-192.png",
