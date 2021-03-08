@@ -2,7 +2,7 @@
     "short_name": "TinTuc.vn",
     "name": "App Tin Tuc",
     "description": "Ứng dụng xem tin tức",
-    "scope": "https://atdsf.herokuapp.com/install?url_scource=hanoi",
+    "scope": "https://atdsf.herokuapp.com/install?url_scource=hn",
     "icons": [
         {
             "src": "/public/manifest/default/icon/default-icon-192.png",
