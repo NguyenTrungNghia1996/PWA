@@ -1,6 +1,6 @@
 // headers.append('Service-Worker-Allowed', '/');
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('public/manifest/default/sw.js',{scope:'/'});
+    navigator.serviceWorker.register('public/manifest/default/sw.js',{scope:'/public/manifest/default/'});
 }
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
