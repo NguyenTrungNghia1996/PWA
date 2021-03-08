@@ -15,10 +15,10 @@ if (file_exists("/manifest/" . $filename)) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--    <link rel="manifest" href="--><?php //echo($filename) ?><!--">-->
-   <link rel="manifest" href="./public/manifest/default_manifest.json">
+   <link rel="manifest" href="./public/manifest/default/default_manifest.json">
     <title>Document</title>
 </head>
-<script src="./public/manifest/app.js">
+<script src="./public/manifest/default/app.js">
 </script>
 
 <body>
