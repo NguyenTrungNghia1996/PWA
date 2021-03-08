@@ -19,7 +19,7 @@
     ],
     "background_color": "#c15252",
     "theme_color": "#556f91",
-    "start_url": "/install",
+    "start_url": "/install?url_scource=1",
     "display": "standalone",
     "orientation": "any"
 }
