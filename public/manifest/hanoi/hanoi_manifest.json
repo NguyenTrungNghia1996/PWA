@@ -1,7 +1,7 @@
 {
-    "short_name": "TinTuc.vn",
-    "name": "App Tin Tuc",
-    "description": "Ứng dụng xem tin tức",
+    "short_name": "TinTuc.vnHN",
+    "name": "App Tin TucHN",
+    "description": "Ứng dụng xem tin tứcHN",
     "scope": "https://atdsf.herokuapp.com/install?url_scource=hn",
     "icons": [
         {
@@ -19,7 +19,7 @@
     ],
     "background_color": "#c15252",
     "theme_color": "#556f91",
-    "start_url": "/install?url_scource=1",
+    "start_url": "/install?url_scource=3",
     "display": "standalone",
     "orientation": "any"
 }
