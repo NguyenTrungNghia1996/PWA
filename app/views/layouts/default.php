@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://tintuc.vn" />
     <link rel="stylesheet" type="text/css" href="public/tintuc/styles/stylesvn.css">
     <!-- <script src="https://static.tintuc.com.vn/cfmedia/js/detectvn.js"></script> -->
-    <script src="/public/scripts/app.js"></script>
+    <!-- <script src="/public/scripts/app.js"></script> -->
 </head>
 
 <body>
